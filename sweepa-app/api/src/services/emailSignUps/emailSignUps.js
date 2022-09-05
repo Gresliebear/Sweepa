@@ -1,4 +1,5 @@
 import { db } from 'src/lib/db'
+import { insertEmail } from 'src/lib/googlesheet'
 
 export const emailSignUps = () => {
   return db.emailSignUp.findMany()
@@ -12,7 +13,9 @@ export const emailSignUp = ({ id }) => {
 
 export const createEmailSignUp = ({ input }) => {
   console.log("Hello Terminal")
-  console.log(input)
+  console.log(input.email)
+  console.log(input.Status)
+  insertEmail(input.email, input.Status)
   return db.emailSignUp.create({
     data: input,
   })
