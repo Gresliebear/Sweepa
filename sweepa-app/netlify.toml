@@ -1,7 +1,11 @@
 [build]
 command = "yarn rw deploy netlify"
 publish = "web/dist"
-functions = "api/dist/functions"
+[functions]
+
+  directory = "api/dist/functions"
+
+  included_files = ["api/dist/**/*.js"]
 
 [dev]
   # To use [Netlify Dev](https://www.netlify.com/products/dev/),

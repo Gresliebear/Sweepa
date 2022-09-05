@@ -72,7 +72,13 @@ const Footer = () => {
                   </Label>
                   <TextField
                     name="email"
-                    validation={{ required: true }}
+                    validation={{ required: true,
+                      pattern: {
+                        value: /^[^@]+@[^.]+\..+$/,
+                        message: 'Please enter a valid email address',
+                      },
+                    }}
+
                     errorClassName="shadow
           appearance-none
           border
@@ -112,28 +118,30 @@ const Footer = () => {
             </Label>
             <div className="flex p-6 pl-20">
             <div className="basis-1/2">
-            <button className="bg-green-700
+            <div className="bg-green-700
             text-white
             font-cooper
             text-4xl
+            w-32
             hover:bg-red-700
             hover:duration-300
             p-3 pl-8
             pr-8 rounded-lg"
             onClick={() => setStatus('Yes')}
-            > Yes </button>
+            > Yes </div>
             </div>
             <div className="basis-1/2">
-            <button className="bg-green-700
+            <div className="bg-green-700
             text-white
             font-cooper
             text-4xl
+            w-32
             hover:bg-red-700
             hover:duration-300
             p-3 pl-8
             pr-8 rounded-lg "
             onClick={() => setStatus('No')}
-            > No </button>
+            > No </div>
             </div>
             </div>
             </div>

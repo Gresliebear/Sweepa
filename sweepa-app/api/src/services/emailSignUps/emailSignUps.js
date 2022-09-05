@@ -12,9 +12,6 @@ export const emailSignUp = ({ id }) => {
 }
 
 export const createEmailSignUp = ({ input }) => {
-  console.log("Hello Terminal")
-  console.log(input.email)
-  console.log(input.Status)
   insertEmail(input.email, input.Status)
   return db.emailSignUp.create({
     data: input,
