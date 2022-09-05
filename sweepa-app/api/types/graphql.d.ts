@@ -1,5 +1,5 @@
 import { GraphQLResolveInfo, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
-import { UserExample as PrismaUserExample, Prisma } from '.prisma/client';
+import { UserExample as PrismaUserExample, EmailSignUp as PrismaEmailSignUp, Prisma } from '.prisma/client';
 import { RedwoodGraphQLContext } from '@redwoodjs/graphql-server/dist/functions/types';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
@@ -136,7 +136,7 @@ export type ResolversTypes = {
   CreateEmailSignUpInput: CreateEmailSignUpInput;
   Date: ResolverTypeWrapper<Scalars['Date']>;
   DateTime: ResolverTypeWrapper<Scalars['DateTime']>;
-  EmailSignUp: ResolverTypeWrapper<EmailSignUp>;
+  EmailSignUp: ResolverTypeWrapper<PrismaEmailSignUp>;
   Int: ResolverTypeWrapper<Scalars['Int']>;
   JSON: ResolverTypeWrapper<Prisma>;
   JSONObject: ResolverTypeWrapper<Scalars['JSONObject']>;
@@ -155,7 +155,7 @@ export type ResolversParentTypes = {
   CreateEmailSignUpInput: CreateEmailSignUpInput;
   Date: Scalars['Date'];
   DateTime: Scalars['DateTime'];
-  EmailSignUp: EmailSignUp;
+  EmailSignUp: PrismaEmailSignUp;
   Int: Scalars['Int'];
   JSON: Prisma;
   JSONObject: Scalars['JSONObject'];
