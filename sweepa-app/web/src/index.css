@@ -1,0 +1,47 @@
+@import url("https://use.typekit.net/vsc0rpy.css");
+
+/**
+ * START --- SETUP TAILWINDCSS EDIT
+ *
+ * `yarn rw setup ui tailwindcss` placed these imports here
+ * to inject Tailwind's styles into your CSS.
+ * For more information, see: https://tailwindcss.com/docs/installation#include-tailwind-in-your-css
+ */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+/**
+ * END --- SETUP TAILWINDCSS EDIT
+ */
+ .font-cooper {
+  font-family: cooper-black-std, serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.bg-syellow {
+  background-color: #FFD600;
+}
+
+
+/* Error css from redwood docs */
+.error {
+  color: red;
+}
+input.error, textarea.error {
+  border: 1px solid red;
+}
+.form-error {
+  color: red;
+  background-color: lavenderblush;
+  padding: 1rem;
+  display: inline-block;
+}
+.form-error ul {
+  list-style-type: disc;
+  margin: 1rem;
+  padding: 1rem;
+}
+.form-error li {
+  display: list-item;
+}
