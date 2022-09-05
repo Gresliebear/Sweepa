@@ -5,6 +5,7 @@ functions = "api/dist/functions"
 
 [dev]
   # To use [Netlify Dev](https://www.netlify.com/products/dev/),
+  #
   # install netlify-cli from https://docs.netlify.com/cli/get-started/#installation
   # and then use netlify link https://docs.netlify.com/cli/get-started/#link-and-unlink-sites
   # to connect your local project to a site already on Netlify
