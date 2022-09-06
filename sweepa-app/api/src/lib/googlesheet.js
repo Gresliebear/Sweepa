@@ -28,11 +28,11 @@ export async function insertEmail(email, Status) {
   private_key: PRIVATE_KEY2,
   // JSON.parse(${process.env.GATSBY_CREDENTIALS})
   client_email: process.env.CLIENT_EMAIL,
-  client_id: process.env.CLIENT_ID,
-  auth_uri: process.env.AUTH_URI,
-  token_uri: process.env.TOKEN_URI,
-  auth_provider_x509_cert_url: process.env.AUTH_PROVIDER_X509_CERT_URL,
-  client_x509_cert_url: process.env.CLIENT_X509_CERT_URL
+  // client_id: process.env.CLIENT_ID,
+  // auth_uri: process.env.AUTH_URI,
+  // token_uri: process.env.TOKEN_URI,
+  // auth_provider_x509_cert_url: process.env.AUTH_PROVIDER_X509_CERT_URL,
+  // client_x509_cert_url: process.env.CLIENT_X509_CERT_URL
   }
 
 //  await doc.useServiceAccountAuth(creds);
