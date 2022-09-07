@@ -30,7 +30,7 @@ export async function insertEmail(email, Status) {
   // private_key: JSON.parse(process.env.PRIVATE_KEY.replace(/\\n/gm, "\n")),
   private_key: PRIVATE_KEY2,
   // JSON.parse(${process.env.GATSBY_CREDENTIALS})
-  client_email: process.env.CLIENT_EMAIL,
+  client_email: process.env.CLIENT_EMAIL2,
   client_id: process.env.CLIENT_ID,
   auth_uri: process.env.AUTH_URI,
   token_uri: process.env.TOKEN_URI,
