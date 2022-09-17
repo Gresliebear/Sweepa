@@ -76,6 +76,7 @@ console.log(sheet.rowCount);
 
 try {
   // Try to run this code
+  console.log("waiting ")
   delay(1000).then(() => {console.log('ran after 1 second1 passed')
   sheet.addRow({  email:  email, Status:Status });
 });
