@@ -5,12 +5,13 @@ const fs = require('fs')
 // we need sheet ID from the
 const { PRIVATE_KEY } = process.env
 const { CLIENT_EMAIL } = process.env
+
+
 export async function insertEmail(email, Status) {
   const doc = new GoogleSpreadsheet('1MBfmJowTVqVhCyQa1hJByk57xVzaJngEJmpGX1fvAmg');
 
 
-  console.log("were inside", email)
-  console.log("were inside", Status)
+
   // const creds = require('./peak-comfort-361602-c2bd1bc6d886.json');
   // let creds = fs.readFileSync('peak-comfort-361602-c2bd1bc6d886.json', 'utf-8')
   // console.log("creds",creds)
@@ -60,24 +61,43 @@ export async function insertEmail(email, Status) {
 
 //  await doc.useServiceAccountAuth(creds);
 // Initialize Auth - see https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication
-await doc.useServiceAccountAuth(serviceCredential);
-await doc.loadInfo(); // loads document properties and worksheets
-console.log(doc.title);
-const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
-console.log(sheet.title);
-console.log(sheet.rowCount);
-// const sheet.addSheet({ headerValues: ['email', 'Status'] })
 
 try {
   // Try to run this code
-  const larryRow = await sheet.addRow({  email:  email, Status:Status });
+  await doc.useServiceAccountAuth(serviceCredential);
+  const docStatus = await doc.loadInfo(); // loads document properties and worksheets
+  console.log(docStatus)
+  console.log("Test UserServiceAccountAuth", doc.title);
 }
 catch(err) {
   // if any error, Code throws the error
   console.log(err)
 }
 
+try {
+  // Try to run this code
+  const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
+  console.log("Google sheet title", sheet.title);
+  console.log("Row Count", sheet.rowCount);
+  console.log("were inside", email)
+  console.log("were inside", Status)
+  sheet.addRow({  email:  email, Status:Status });
 
-return "Sucess"
+}
+catch(err) {
+  // if any error, Code throws the error
+  console.log(err)
+  return {
+    headers: {},
+    statuscode: 200,
+    body: JSON.stringify(err)
+  }
+}
+
+return {
+  headers: {},
+  statuscode: 200,
+  body: JSON.stringify('Success 200')
+}
 }
 
