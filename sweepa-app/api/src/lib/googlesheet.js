@@ -70,22 +70,40 @@ export async function insertEmail(email, Status) {
 // await doc.useServiceAccountAuth(serviceCredential);
 // await doc.loadInfo(); // loads document properties and worksheets
 
-try {
-  // Try to run this code
-  console.log("waiting ")
-  doc.useServiceAccountAuth(serviceCredential);
-  doc.loadInfo(); // loads document properties and worksheets
+async function async1(serviceCredential, email, Status) {
+  await doc.useServiceAccountAuth(serviceCredential);
+  await async2(email, Status);
+}
+
+async function async2(email, Status) {
+  await doc.loadInfo(); // loads document properties and worksheets
   console.log(doc.title);
-  delay(900).then(() => {console.log('ran after 1 second1 passed')
-  const sheet = doc.sheetsByIndex[0];
-  sheet.addRow({  email:  email, Status:Status });
-});
-  // const larryRow = await sheet.addRow({  email:  email, Status:Status });
+  async3(email, Status);
 }
-catch(err) {
-  // if any error, Code throws the error
-  console.log(err)
+
+
+
+async function async3(email, Status) {
+
+  try {
+    // Try to run this code
+    console.log("waiting ")
+
+    delay(900).then(() => {console.log('ran after 1 second1 passed')
+    const sheet = doc.sheetsByIndex[0];
+    awaitsheet.addRow({  email:  email, Status:Status });
+  });
+    // const larryRow = await sheet.addRow({  email:  email, Status:Status });
+  }
+  catch(err) {
+    // if any error, Code throws the error
+    console.log(err)
+  }
+
 }
+
+// asynchronous code in sequence
+async1(serviceCredential, email, Status)
 
 
 return "Sucess"
