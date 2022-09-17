@@ -89,11 +89,8 @@ async function async3(email, Status) {
   try {
     // Try to run this code
     console.log("waiting ")
-
-    delay(900).then(() => {console.log('ran after 1 second1 passed')
     const sheet = doc.sheetsByIndex[0];
-    sheet.addRow({  email:  email, Status:Status });
-  });
+    const larryRow = await sheet.addRow({  email:  email, Status:Status });
     // const larryRow = await sheet.addRow({  email:  email, Status:Status });
   }
   catch(err) {
