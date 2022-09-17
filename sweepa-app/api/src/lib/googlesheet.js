@@ -13,9 +13,6 @@ function delay(time) {
 export async function insertEmail(email, Status) {
   const doc = new GoogleSpreadsheet('1MBfmJowTVqVhCyQa1hJByk57xVzaJngEJmpGX1fvAmg');
 
-
-  console.log("were inside", email)
-  console.log("were inside", Status)
   // const creds = require('./peak-comfort-361602-c2bd1bc6d886.json');
   // let creds = fs.readFileSync('peak-comfort-361602-c2bd1bc6d886.json', 'utf-8')
   // console.log("creds",creds)
@@ -66,16 +63,19 @@ export async function insertEmail(email, Status) {
 //  await doc.useServiceAccountAuth(creds);
 // Initialize Auth - see https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication
 
-await doc.useServiceAccountAuth(serviceCredential);
-await doc.loadInfo(); // loads document properties and worksheets
-console.log(doc.title);
+
 // const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
 
 // const sheet.addSheet({ headerValues: ['email', 'Status'] })
+// await doc.useServiceAccountAuth(serviceCredential);
+// await doc.loadInfo(); // loads document properties and worksheets
 
 try {
   // Try to run this code
   console.log("waiting ")
+  doc.useServiceAccountAuth(serviceCredential);
+  doc.loadInfo(); // loads document properties and worksheets
+  console.log(doc.title);
   delay(900).then(() => {console.log('ran after 1 second1 passed')
   const sheet = doc.sheetsByIndex[0];
   sheet.addRow({  email:  email, Status:Status });
