@@ -5,6 +5,11 @@ const fs = require('fs')
 // we need sheet ID from the
 const { PRIVATE_KEY } = process.env
 const { CLIENT_EMAIL } = process.env
+function delay(time) {
+  return new Promise(resolve => setTimeout(resolve, time));
+}
+
+
 export async function insertEmail(email, Status) {
   const doc = new GoogleSpreadsheet('1MBfmJowTVqVhCyQa1hJByk57xVzaJngEJmpGX1fvAmg');
 
@@ -71,7 +76,10 @@ console.log(sheet.rowCount);
 
 try {
   // Try to run this code
-  const larryRow = await sheet.addRow({  email:  email, Status:Status });
+  delay(1000).then(() => {console.log('ran after 1 second1 passed')
+  sheet.addRow({  email:  email, Status:Status });
+});
+  // const larryRow = await sheet.addRow({  email:  email, Status:Status });
 }
 catch(err) {
   // if any error, Code throws the error
