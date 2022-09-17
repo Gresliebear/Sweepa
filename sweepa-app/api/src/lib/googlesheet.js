@@ -69,15 +69,15 @@ export async function insertEmail(email, Status) {
 await doc.useServiceAccountAuth(serviceCredential);
 await doc.loadInfo(); // loads document properties and worksheets
 console.log(doc.title);
-const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
-console.log(sheet.title);
-console.log(sheet.rowCount);
+// const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
+
 // const sheet.addSheet({ headerValues: ['email', 'Status'] })
 
 try {
   // Try to run this code
   console.log("waiting ")
-  delay(1000).then(() => {console.log('ran after 1 second1 passed')
+  delay(900).then(() => {console.log('ran after 1 second1 passed')
+  const sheet = doc.sheetsByIndex[0];
   sheet.addRow({  email:  email, Status:Status });
 });
   // const larryRow = await sheet.addRow({  email:  email, Status:Status });
