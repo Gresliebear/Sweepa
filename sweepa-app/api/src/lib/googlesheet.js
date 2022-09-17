@@ -5,13 +5,12 @@ const fs = require('fs')
 // we need sheet ID from the
 const { PRIVATE_KEY } = process.env
 const { CLIENT_EMAIL } = process.env
-
-
 export async function insertEmail(email, Status) {
   const doc = new GoogleSpreadsheet('1MBfmJowTVqVhCyQa1hJByk57xVzaJngEJmpGX1fvAmg');
 
 
-
+  console.log("were inside", email)
+  console.log("were inside", Status)
   // const creds = require('./peak-comfort-361602-c2bd1bc6d886.json');
   // let creds = fs.readFileSync('peak-comfort-361602-c2bd1bc6d886.json', 'utf-8')
   // console.log("creds",creds)
@@ -74,25 +73,21 @@ catch(err) {
   console.log(err)
 }
 
+
+
 try {
   // Try to run this code
+  delay(1000).then(() => console.log('ran after 1 second1 passed'));
   const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
   console.log("Google sheet title", sheet.title);
   console.log("Row Count", sheet.rowCount);
-  console.log("were inside", email)
-  console.log("were inside", Status)
   sheet.addRow({  email:  email, Status:Status });
-
 }
 catch(err) {
   // if any error, Code throws the error
   console.log(err)
-  return {
-    headers: {},
-    statuscode: 200,
-    body: JSON.stringify(err)
-  }
 }
+
 
 return {
   headers: {},
