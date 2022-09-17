@@ -72,6 +72,7 @@ export async function insertEmail(email, Status) {
 
 async function async1(serviceCredential, email, Status) {
   await doc.useServiceAccountAuth(serviceCredential);
+  console.log("credentials")
   await async2(email, Status);
 }
 
@@ -91,7 +92,7 @@ async function async3(email, Status) {
 
     delay(900).then(() => {console.log('ran after 1 second1 passed')
     const sheet = doc.sheetsByIndex[0];
-    awaitsheet.addRow({  email:  email, Status:Status });
+    sheet.addRow({  email:  email, Status:Status });
   });
     // const larryRow = await sheet.addRow({  email:  email, Status:Status });
   }
